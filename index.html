@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PLACEHOLDER FOR DESCRIPTION">
+  <meta name="keywords" content="KEYWORD, KEYWORD, KEYWORD">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IM360: Large-scale Indoor Mapping with 360 Cameras </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <link rel="stylesheet" href="./definitive-image-comparison-slider-master/src/dics.css"> -->
+  <!-- <script src="./definitive-image-comparison-slider-master/src/dics.js"></script> -->
+	<!-- <script> -->
+ <!--    document.addEventListener('DOMContentLoaded', domReady); -->
+ <!--    function domReady() { -->
+ <!--      var b = document.querySelectorAll('.b-dics'); -->
+ <!--      b.forEach(element =>  -->
+ <!--        new Dics({ -->
+ <!--          container: element, -->
+ <!--          textPosition: 'top' -->
+ <!--        }) -->
+ <!--      ); -->
+ <!--    } -->
+	<!-- </script> -->
+
+
+  <style>
+    .center-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* This will make it take the full height of the viewport */
+    }
+
+    .sketchfab-embed-wrapper {
+        width: 80%; /* Adjust this value to change the size */
+        height: 80%; /* Adjust this value to change the size */
+    }
+    .center-image {
+    display: flex;
+    justify-content: center;
+    }
+</style>
+
+</head>
+
+
+
+
+
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+<!--       <a class="navbar-item" href="https://jh-choi.github.io"> -->
+      <a class="navbar-item" href="">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://jingsenzhu.github.io/invrend">
+            Learning-based Inverse Rendering
+          </a>
+        </div>
+      </div> -->
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="font-size:36px;">
+                <span style="color:crimson">IM360</span>: Large-scale <span style="color:crimson">I</span>ndoor <span style="color:crimson">M</span>apping with <span style="color:crimson">360</span> Cameras
+          </h1>
+          <div class="is-size-5 publication-authors"
+            <span class="author-block" style="font-size: 22px;">
+              <a href="https://jdk9405.github.io/">Dongki Jung*</a><sup>1</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              <a href="https://jh-choi.github.io/">Jaehoon Choi*</a><sup>1</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              <a href="https://scholar.google.co.kr/citations?user=8mpfeP0AAAAJ&hl=en">Yonghan Lee</a><sup>1</sup>,
+            </span>
+            <span class="author-block" style="font-size: 22px;">
+              <a href="https://scholar.google.com/citations?user=X08l_4IAAAAJ&hl=en">Dinesh Manocha</a><sup>1</sup>,
+            </span>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="font-size: 18px;"><sup>1</sup>University of Maryland</a></span>
+          </div>
+
+          <h2 style="font-size:24px;color:#6e6e6e">ICCV 2025</h2>
+
+          <!-- <h2 style="font-size:24px;color:#6e6e6e">Annonymous</h2> -->
+
+
+
+          <div class="column has-text-centered">
+            <div class="link-block">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2502.12545"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block"> -->
+              <!--   <a href="" -->
+              <!--      class="external-link button is-normal is-rounded is-dark"> -->
+              <!--     <span class="icon"> -->
+              <!--         <i class="fas fa-file-pdf"></i> -->
+              <!--     </span> -->
+              <!--     <span>Supplementary</span> -->
+              <!--   </a> -->
+              <!-- </span> -->
+              <!-- <span class="link-block"> -->
+              <!--   <a href="" -->
+              <!--      class="external-link button is-normal is-rounded is-dark"> -->
+              <!--     <span class="icon"> -->
+              <!--         <i class="ai ai-arxiv"></i> -->
+              <!--     </span> -->
+              <!--     <span>arXiv</span> -->
+              <!--   </a> -->
+              <!-- </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/jdk9405/IM360"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data (Soon)</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/main.png" alt="Nerfies" height="80%">
+      <h2 class="subtitle has-text-centered">
+        <!-- <span class="EDM">EDM</span> estimates distortion-aware dense correspondences between pairs of omnidirectional images. -->
+        <div class="content has-text-justified">
+          We propose a complete pipeline for indoor mapping using omnidirectional images, consisting of three key stages: <span style="color:blue">(1) Spherical SfM</span>, <span style="color:brown">(2) Geometry Reconstruction</span>, and <span style="color:green">(3) Texture Optimization</span>.
+        </p>
+        </div>
+      </h2>
+    </div>
+  </div>
+</section>
+	
+
+<section class="section">
+  <!-- Abstract. -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          We present a novel 3D reconstruction pipeline for 360° cameras for 3D mapping and rendering of indoor environments. Traditional Structure-from-Motion (SfM) methods may not work well in large-scale indoor scenes due to the prevalence of textureless and repetitive regions. To overcome these challenges, our approach (IM360) leverages the wide field of view of omnidirectional images and integrates the spherical camera model into every core component of the SfM pipeline. In order to develop a comprehensive 3D reconstruction solution, we integrate a neural implicit surface reconstruction technique to generate high-quality surfaces from sparse input data. Additionally, we utilize a mesh-based neural rendering approach to refine texture maps and accurately capture view-dependent properties by combining diffuse and specular components. We evaluate our pipeline on large-scale indoor scenes from the Matterport3D and Stanford2D3D datasets. In practice, IM360 demonstrate superior performance in terms of textured mesh reconstruction over SOTA. We observe accuracy improvements in terms of camera localization and registration as well as rendering high frequency details.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Related Links</h2>
+        <div class="content has-text-justified">
+          The renderer is largely based on Jiaxiang Tang's great work <a href="https://github.com/ashawkey/nerf2mesh">NeRF2Mesh</a>.
+          We also borrow  <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for their excellent website templates.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>   -->
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/sfm1.png" alt="Nerfies" height="100%">
+      <div class="content has-text-justified">
+        We provide a visual comparison between sparse matching perspective SfM and our proposed dense matching spherical SfM. In (a), ERP images are converted into a cubemap representation, after which feature matching is performed across all 36 possible image pairs, resulting in sparse and noisy correspondence matches. (b) demonstrates our approach, which directly finds dense and accurate correspondences on ERP images, thereby facilitating the construction of a detailed 3D structure.
+        </p>
+      </div>
+      <img src="./static/images/sfm2.png" alt="Nerfies" height="100%">
+      <div class="content has-text-justified">
+        <!-- By leveraging dense features on equirectangular projection (ERP) images, our method effectively finds correspondences in textureless regions. -->
+        By leveraging dense features on equirectangular projection (ERP) images, our method effectively finds correspondences in textureless regions, registers more camera poses, and reconstructs a greater number of 3D points.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="center-image">
+        <h2 class="title is-3">Results: Neural Surface Reconstruction</h2>
+      </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="2t7WUuJeko7_geometric" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/7ebfdd62ec6a4718a1ee6efeb42ad997/embed"> </iframe> </div>
+        </div>
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="surface_2001_ple" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/da885e20ca8f486c9ec6571ea7e871fa/embed"> </iframe> </div>
+        </div>
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="surface_2001_rpm" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/276d85910eb54e778d47f78dc2d4f854/embed"> </iframe> </div>
+        </div>
+        <div class="item item-steve">
+          <div class="sketchfab-embed-wrapper"> <iframe title="area_3" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/3c30a294428e452ba98e4e6a94fea075/embed"> </iframe> </div>
+        </div>
+
+      </div>
+      <div class="content has-text-justified">
+        Using accurately estimated camera poses from a 360-degree vision sensor, we can construct a geometric mesh from sparsely scanned, large-scale indoor datasets.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light is-small" id="synthesis">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="row">
+        <div class="col-12 text-center">
+          <!-- <h2 class="title">Online Interactive Viewer Demo</h2> -->
+          <h2 class="title">🚀 Try the Online Interactive Viewer Demo 🔍</h2>
+          <tyle="margin-top:0px">
+          <table style="table-layout: fixed;">
+            <tbody>
+                <tr>
+                  <td width="9%" style="padding-right: 10px;"> 
+                    <a href="renderer.html?scene=2t7WUuJeko7_deci50_lowres2048" style="text-decoration: none"> 
+                      <img src="static/thumbnails/2t7WUuJeko7_resized.jpg" alt="2t7WUuJeko7" class="img-responsive" width="90%"/> 
+                      <b>2t7WUuJeko7</b> 
+                    </a> 
+                  </td>
+                  <!-- <td width="9%" style="padding-right: 10px;">  -->
+                  <!--   <a href="renderer.html?scene=8194nk5LbLH_deci50_lowres2048" style="text-decoration: none">  -->
+                  <!--     <img src="static/thumbnails/8194nk5LbLH_resized.jpg" alt="bicycle" class="img-responsive" width="90%"/>  -->
+                  <!--     <b>8194nk5LbLH</b>  -->
+                  <!--   </a>  -->
+                  <!-- </td> -->
+                  <td width="9%" style="padding-right: 10px;"> 
+                    <a href="renderer.html?scene=pLe4wQe7qrG_deci50_lowres2048" style="text-decoration: none"> 
+                      <img src="static/thumbnails/pLe4wQe7qrG_resized.jpg" alt="bicycle" class="img-responsive" width="90%"/> 
+                      <b>pLe4wQe7qrG</b> 
+                    </a> 
+                  </td>
+                  <td width="9%" style="padding-right: 10px;"> 
+                    <a href="renderer.html?scene=RPmz2sHmrrY_deci50_lowres2048" style="text-decoration: none"> 
+                      <img src="static/thumbnails/RPmz2sHmrrY_resized.jpg" alt="bicycle" class="img-responsive" width="87%"/> 
+                      <b>RPmz2sHmrrY</b> 
+                    </a> 
+                  </td>
+                  <td width="9%" style="padding-right: 10px;"> 
+                    <a href="renderer.html?scene=YVUc4YcDtcY_deci50_lowres2048" style="text-decoration: none"> 
+                      <img src="static/thumbnails/YVUc4YcDtcY_resized.jpg" alt="bicycle" class="img-responsive" width="90%"/> 
+                      <b>YVUc4YcDtcY</b> 
+                    </a> 
+                  </td>
+                  <!-- <td width="9%" style="padding-right: 10px;">  -->
+                  <!--   <a href="renderer.html?scene=zsNo4HB9uLZ_deci50_lowres2048" style="text-decoration: none">  -->
+                  <!--     <img src="static/thumbnails/zsNo4HB9uLZ.png" alt="bicycle" class="img-responsive" width="87%"/>  -->
+                  <!--     <b>zsNo4HB9uLZ</b>  -->
+                  <!--   </a>  -->
+                  <!-- </td> -->
+                </tr>
+            </tbody>
+          </table>
+          <!-- <table style="table-layout: fixed; margin-top: 20px;"> -->
+          <!--   <tbody> -->
+          <!--     <tr> -->
+          <!--       <td width="9%" style="padding-right: 10px;">  -->
+          <!--         <a href="renderer.html?scene=RPmz2sHmrrY_deci50_lowres2048" style="text-decoration: none">  -->
+          <!--           <img src="static/thumbnails/RPmz2sHmrrY_resized.jpg" alt="bicycle" class="img-responsive" width="87%"/>  -->
+          <!--           <b>RPmz2sHmrrY</b>  -->
+          <!--         </a>  -->
+          <!--       </td> -->
+          <!--       <td width="9%" style="padding-right: 10px;">  -->
+          <!--         <a href="renderer.html?scene=YVUc4YcDtcY_deci50_lowres2048" style="text-decoration: none">  -->
+          <!--           <img src="static/thumbnails/YVUc4YcDtcY_resized.jpg" alt="bicycle" class="img-responsive" width="90%"/>  -->
+          <!--           <b>YVUc4YcDtcY</b>  -->
+          <!--         </a>  -->
+          <!--       </td> -->
+          <!--       <td width="9%" style="padding-right: 10px;">  -->
+          <!--         <a href="renderer.html?scene=zsNo4HB9uLZ_deci50_lowres2048" style="text-decoration: none">  -->
+          <!--           <img src="static/thumbnails/zsNo4HB9uLZ.png" alt="bicycle" class="img-responsive" width="87%"/>  -->
+          <!--           <b>zsNo4HB9uLZ</b>  -->
+          <!--         </a>  -->
+          <!--       </td> -->
+          <!--     </tr> -->
+          <!--   </tbody> -->
+          <!-- </table> -->
+        </div>
+
+          <div class="content has-text-justified">
+            Thanks to the use of mesh and neural textures, our method is easily compatible with popular graphics frameworks such as WebGL. This demonstrates the potential for our method to be integrated with widely available graphics pipelines.<br>
+          </div>
+          <div class="content has-text-justified">
+            <p><small><em>Please note that the reconstructed mesh has been compressed to enable a smooth in-browser experience. We decimated 50% of the mesh triangles. Thus, the visual quality is slightly degraded compared to the visual results. ⚠️ If the renderer does not work properly, please press Ctrl + Shift + R to force-refresh the page. You may also open the Developer Console (F12) and check the logs — sometimes the viewer loads after a short delay. </em></small></p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <!-- Results. -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results: Texture Optimization</h2>
+        <img src="./static/images/texture1.png" alt="Nerfies" height="100%">
+        <br>
+        <img src="./static/images/texture2.png" alt="Nerfies" height="100%">
+        <br>
+        <img src="./static/images/texture3.png" alt="Nerfies" height="100%">
+        <br>
+        <img src="./static/images/texture4.png" alt="Nerfies" height="100%">
+        <br>
+        <img src="./static/images/texture5.png" alt="Nerfies" height="100%">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="section" id="synthesis"> -->
+<!--     <div class="container is-max-desktop has-text-centered"> -->
+<!--       <div class="row"> -->
+<!--         <div class="col-12 text-center"> -->
+<!--           <h2 class="title">Online Interactive Viewer Demo</h2> -->
+<!--           <tyle="margin-top:0px"> -->
+<!--           <table style="table-layout: fixed;"> -->
+<!--             <tbody> -->
+<!--                 <tr> -->
+<!--                   <td width="9%" style="padding-right: 10px;">  -->
+<!--                     <a href="renderer.html?scene=2t7WUuJeko7_deci50_lowres2048" style="text-decoration: none">  -->
+<!--                       <img src="static/thumbnails/2t7WUuJeko7_resized.jpg" alt="2t7WUuJeko7" class="img-responsive" width="90%"/>  -->
+<!--                       <b>2t7WUuJeko7</b>  -->
+<!--                     </a>  -->
+<!--                   </td> -->
+<!--                   <td width="9%" style="padding-right: 10px;">  -->
+<!--                     <a href="renderer.html?scene=8194nk5LbLH_deci50_lowres2048" style="text-decoration: none">  -->
+<!--                       <img src="static/thumbnails/8194nk5LbLH_resized.jpg" alt="bicycle" class="img-responsive" width="90%"/>  -->
+<!--                       <b>8194nk5LbLH</b>  -->
+<!--                     </a>  -->
+<!--                   </td> -->
+<!--                   <td width="9%" style="padding-right: 10px;">  -->
+<!--                     <a href="renderer.html?scene=pLe4wQe7qrG_deci50_lowres2048" style="text-decoration: none">  -->
+<!--                       <img src="static/thumbnails/pLe4wQe7qrG_resized.jpg" alt="bicycle" class="img-responsive" width="90%"/>  -->
+<!--                       <b>pLe4wQe7qrG</b>  -->
+<!--                     </a>  -->
+<!--                   </td> -->
+<!--                 </tr> -->
+<!--             </tbody> -->
+<!--           </table> -->
+<!--           <table style="table-layout: fixed; margin-top: 20px;"> -->
+<!--             <tbody> -->
+<!--               <tr> -->
+<!--                 <td width="9%" style="padding-right: 10px;">  -->
+<!--                   <a href="renderer.html?scene=RPmz2sHmrrY_deci50_lowres2048" style="text-decoration: none">  -->
+<!--                     <img src="static/thumbnails/RPmz2sHmrrY_resized.jpg" alt="bicycle" class="img-responsive" width="87%"/>  -->
+<!--                     <b>RPmz2sHmrrY</b>  -->
+<!--                   </a>  -->
+<!--                 </td> -->
+<!--                 <td width="9%" style="padding-right: 10px;">  -->
+<!--                   <a href="renderer.html?scene=YVUc4YcDtcY_deci50_lowres2048" style="text-decoration: none">  -->
+<!--                     <img src="static/thumbnails/YVUc4YcDtcY_resized.jpg" alt="bicycle" class="img-responsive" width="90%"/>  -->
+<!--                     <b>YVUc4YcDtcY</b>  -->
+<!--                   </a>  -->
+<!--                 </td> -->
+<!--                 <td width="9%" style="padding-right: 10px;">  -->
+<!--                   <a href="renderer.html?scene=zsNo4HB9uLZ_deci50_lowres2048" style="text-decoration: none">  -->
+<!--                     <img src="static/thumbnails/zsNo4HB9uLZ.png" alt="bicycle" class="img-responsive" width="87%"/>  -->
+<!--                     <b>zsNo4HB9uLZ</b>  -->
+<!--                   </a>  -->
+<!--                 </td> -->
+<!--               </tr> -->
+<!--             </tbody> -->
+<!--           </table> -->
+<!--         </div> -->
+<!-- 	<div class="content has-text-justified"> -->
+<!--          Thanks to the use of mesh and neural textures, our method is easily compatible with popular graphics frameworks such as WebGL. This demonstrates the potential for our method to be integrated with widely available graphics pipelines. -->
+<!--          <p><small><em>Please note that the reconstructed mesh has been compressed to enable a smooth in-browser experience. We decimated 50% of the mesh triangles. Thus, the visual quality is slightly degraded compared to the visual results.</em></small></p> -->
+<!--       	</div> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </section> -->
+
+
+
+<!-- <section class="hero is-light is-small"> -->
+<!--   <div class="hero-body"> -->
+<!--     <div class="container"> -->
+
+<!--       <div class="center-image"> -->
+<!--         <h2 class="title is-3">Downstream Tasks : Spherical Two View Geometry</h2> -->
+<!--       </div> -->
+
+<!--       <div id="results-carousel" class="carousel results-carousel"> -->
+
+<!--         <div class="item item-steve"> -->
+<!--           <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation1" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/4d072b94c7224065a4f71016f7707b08/embed"> </iframe> </div> -->
+<!--         </div> -->
+<!--         <div class="item item-steve"> -->
+<!--           <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation4" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/65a2d030b773452aa905ea0bf4418ba4/embed"> </iframe> </div> -->
+<!--         </div> -->
+<!--         <div class="item item-steve"> -->
+<!--           <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation5" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/4a9bd1257de04d8f959abe62a0caa93f/embed"> </iframe> </div> -->
+<!--         </div> -->
+<!--         <div class="item item-steve"> -->
+<!--           <div class="sketchfab-embed-wrapper"> <iframe title="paper_triangulation3" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="720" height="480" src="https://sketchfab.com/models/d2f1fd48742f471b95e5a29864c0bc3a/embed"> </iframe> </div> -->
+<!--         </div> -->
+
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Thanks to <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for their excellent website templates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  bulmaCarousel.attach('#geo-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true
+  });
+  bulmaCarousel.attach('#novel-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true
+  });
+  bulmaCarousel.attach('#edit-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true
+  });
+</script>
+
+</body>
+</html>
